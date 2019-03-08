@@ -43,6 +43,12 @@ public class PlayerController : MonoBehaviour
         }
 
         anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
+
+        if (transform.position.y < -30)
+        {
+            transform.position = new Vector2(0, 0);
+            rb.velocity = new Vector2(0, 0);
+        }
     }
 
 
