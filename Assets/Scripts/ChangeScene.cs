@@ -3,27 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class ChangeScene : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    public void StartMain()
     {
-
+        SceneManager.LoadScene("Main");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void QuitGame()
     {
-        
-    }
-
-    public void StartMain(){
-    	SceneManager.LoadScene("Main");
-    }
-
-    public void QuitGame(){
-    	Application.Quit();
+        Application.Quit();
     }
 }
