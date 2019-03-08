@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+	private AudioSource aSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        aSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -24,5 +27,9 @@ public class ChangeScene : MonoBehaviour
 
     public void QuitGame(){
     	Application.Quit();
+    }
+
+    public void PlaySound(){
+    	aSource.Play();
     }
 }
