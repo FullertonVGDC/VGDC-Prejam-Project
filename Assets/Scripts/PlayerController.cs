@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
     public float jumpPower = 100;
     bool grounded;
 
+    public AudioClip jumpSound;
+
     SpriteRenderer sr;
     Rigidbody2D rb;
     Animator anim;
+    AudioSource audioSource;
 
 
 
@@ -19,6 +22,7 @@ public class PlayerController : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(new Vector2(0, jumpPower));
+            audioSource.clip = jumpSound;
+            audioSource.Play();
         }
 
         anim.SetFloat("xVelocity", Mathf.Abs(rb.velocity.x));
